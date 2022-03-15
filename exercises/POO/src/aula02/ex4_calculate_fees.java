@@ -18,15 +18,27 @@ public class ex4_calculate_fees {
             try {
                 System.out.print("\nInput the invested capital: ");
                 capital = sc.nextDouble();
+                if(capital < 0)
+                    throw new InputMismatchException();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Looks like you shouldn't be introducing that !!!");
+                sc.nextLine(); // Flush the bad input
+            }
+        }
+        while (true){
+            try {
                 System.out.print("Input the monthly rate: ");
                 rate = sc.nextDouble();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Looks like you shouldn't be introducing that !!!");
-                sc.next(); // Flush the bad input
+                sc.nextLine(); // Flush the bad input
             }
         }
         System.out.printf("The money over a 3 month period will be %5.3f %n", calculate_interest(capital, rate, 0, 3));
+        
+        sc.close();
     }
 
     public static double calculate_interest(double amount, double rate, int strDepth, int endDepth) {

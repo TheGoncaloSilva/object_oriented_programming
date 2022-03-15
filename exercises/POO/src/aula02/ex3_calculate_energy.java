@@ -15,8 +15,26 @@ public class ex3_calculate_energy {
             try {
                 System.out.print("Input the water weight in Kilograms: ");
                 m = sc.nextDouble();
+                if(m <= 0)
+                    throw new InputMismatchException();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Looks like you shouldn't be introducing that !!!");
+                sc.nextLine(); // Flush the bad input
+            }
+        }
+        while (true){
+            try {
                 System.out.print("Input the water initial temperature: ");
                 initTemp = sc.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Looks like you shouldn't be introducing that !!!");
+                sc.nextLine(); // Flush the bad input
+            }
+        }
+        while (true){
+            try {
                 System.out.print("Input the water final temperature: ");
                 finalTemp = sc.nextDouble();
                 break;
@@ -25,7 +43,9 @@ public class ex3_calculate_energy {
                 sc.next(); // Flush the bad input
             }
         }
-        System.out.printf("The amount of energy need is %5.2f (Joules) %n", m * (finalTemp - initTemp) * 4184);
+        System.out.printf("The amount of energy need is %5.2f (Joules) \n", m * (finalTemp - initTemp) * 4184);
+
+        sc.close();
     }
 }
 

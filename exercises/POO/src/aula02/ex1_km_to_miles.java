@@ -13,13 +13,18 @@ public class ex1_km_to_miles {
             try {
                 System.out.print("Input the distance in Kilometers: ");
                 km = sc.nextDouble();
+                if(km < 0)
+                    throw new InputMismatchException();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Looks like you shouldn't be introducing that !!!");
-                sc.next(); // Flush the bad input
+                sc.nextLine(); // Flush the bad input
             }
         }
+
         System.out.printf("The distance in miles is %5.2f %n", km/1.609);
+
+        sc.close();
     }
 
 }

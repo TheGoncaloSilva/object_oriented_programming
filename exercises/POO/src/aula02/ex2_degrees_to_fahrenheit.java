@@ -16,9 +16,11 @@ public class ex2_degrees_to_fahrenheit {
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Looks like you shouldn't be introducing that !!!");
-                sc.next(); // Flush the bad input
+                sc.nextLine(); // Flush the bad input
             }
         }
         System.out.printf("The temperature in fahrenheit is %5.2f %n", (1.8 * degrees) + 32);
+
+        sc.close();
     }
 }
