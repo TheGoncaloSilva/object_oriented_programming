@@ -18,7 +18,7 @@ public class ex8_pitagoras {
         b = read_value("Triangle B side: ", sc);
         double c = Math.sqrt(Math.pow((double) a, 2) + Math.pow((double) b, 2));
         System.out.printf("The C side or hipotenuse is %5.2f \n", c);
-        System.out.printf("The angle formed by A and C is %5.2f º \n", Math.toDegrees(Math.asin(a/c)));
+        System.out.printf("The angle formed by A and C is %5.2f º \n", Math.toDegrees(Math.acos(a/c)));
         sc.close();
     }
     public static double read_value(String message, Scanner sc) {
