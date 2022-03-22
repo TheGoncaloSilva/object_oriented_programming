@@ -21,7 +21,7 @@ public class ex5_investment_fees {
             amount = amount + (amount * (rate*0.01));
             System.out.printf("Month %d: %6.2f \n", i, amount);
         }
-
+        sc.close();
     }
 
     public static double read_value(String message, Scanner sc, char type) {
