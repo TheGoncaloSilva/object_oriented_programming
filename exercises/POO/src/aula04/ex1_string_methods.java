@@ -31,6 +31,8 @@ public class ex1_string_methods {
             try {
                 System.out.print(message);
                 value = sc.next();
+                if(value.isEmpty() || value.length() < 3) // Minimum of 3 characters
+                    throw new InputMismatchException();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Looks like you shouldn't be introducing that !!!");
