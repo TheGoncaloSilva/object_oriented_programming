@@ -14,12 +14,13 @@ public class ex_2 {
             switch (choice) {
                 case 1: cal.set(read_value("Input the day: ", sc, 1, 12), read_value("Input the year: ", sc, 1, Integer.MAX_VALUE)); ;break;
                 case 2: cal.printMonth(read_value("Input the month: ", sc, 1, 12)); break;
-                case 3: cal.toString();break;
+                case 3: System.out.println(cal.toString());break;
                 default:break;
             }
             System.out.println();
         } while(choice > 0);
         
+        sc.close();
     }
 
     public static void printMenu(){

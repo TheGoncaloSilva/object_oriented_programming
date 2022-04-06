@@ -33,17 +33,16 @@ public class Schedule {
         for(int i = 1; i < month; i++)
             t_days += date.monthDays(i, year);
         
-        t_days += week_day % 7;
-        t_days = (t_days > 7) ? (t_days - 7) : t_days; // goes to another week range
-
-        return t_days;
+        t_days %= 7; // goes to another week range
+        return getFirstWeekdayOfYear() + t_days;
     }
 
     public void printMonth(int month){
         int total_days = date.monthDays(month, year);
-        System.out.printf(" %10s %4d \n", monthName[month-1], year);
+        System.out.printf("\n %10s %4d \n", monthName[month-1], year);
         System.out.println("Su Mo Tu We Th Fr Sa");
         int day = firstWeekdayOfMonth(month), aux = 1, days = 1;
+        day = (day > 7) ? day-7 : day;
         for(int l = 0; l < ((day+total_days)/7) + 1; l++){
             for(int c = 0; c < 7; c++){
                 if(aux++ < day)
@@ -55,8 +54,26 @@ public class Schedule {
         }
     }
 
-
     public String toString(){
-        return "potatos";
+        StringBuilder sb = new StringBuilder();
+
+        for(int month = 1; month <= 12; month++){
+            int total_days = date.monthDays(month, year);
+            sb.append(String.format("\n %10s %4d \n", monthName[month-1], year));
+            sb.append("Su Mo Tu We Th Fr Sa \n");
+            int day = firstWeekdayOfMonth(month), aux = 1, days = 1;
+            day = (day > 7) ? day-7 : day;
+            for(int l = 0; l < ((day+total_days)/7) + 1; l++){
+                for(int c = 0; c < 7; c++){
+                    if(aux++ < day)
+                        sb.append("   ");
+                    else if(days <= total_days)
+                        sb.append(String.format("%2d ", days++));
+                }
+                sb.append("\n");
+            }
+
+        }
+        return sb.toString();
     }
 }
