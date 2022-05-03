@@ -1,6 +1,6 @@
 package aula07.ex_1;
 
-public class Circulo extends Forma implements Comparable<Object> {
+public class Circulo extends Forma {
 
     private double raio;
 
@@ -22,11 +22,9 @@ public class Circulo extends Forma implements Comparable<Object> {
 
     @Override
     public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-
+        if(!(obj instanceof Circulo) && getClass() != obj.getClass()) return false;
         Circulo c = (Circulo) obj;
-        return (this.getRaio() == c.getRaio() && this.getCor().equals(c.getCor()));
+        return super.equals(c) && (this.getRaio() == c.getRaio());
     }
 
     @Override
@@ -35,8 +33,8 @@ public class Circulo extends Forma implements Comparable<Object> {
         if (obj == null || getClass() != obj.getClass()) return -1;
 
         Circulo c = (Circulo) obj;
-        if(this.getRaio() < c.raio && !this.getCor().equals(c.getCor())) return -1;
-        return (this.getRaio() == c.raio) ? 0 : 1;
+        if(this.getRaio() < c.getRaio()) return -1;
+        return (this.getRaio() == c.getRaio()) ? 0 : 1;
     }
 
     double area(){

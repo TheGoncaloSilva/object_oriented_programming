@@ -2,28 +2,31 @@ package aula07.ex_2;
 
 public class DateND extends Date {
 
-    private static final DateYMD compDate = new DateYMD();
     private int days;
+    private DateYMD dt;
 
     /** Default constructor */
-    public DateND(int d, int m, int y){
-        if(valid(d, m, y))
-            this.days = calculateDays(d, m, y);
+    public DateND(int ds){
+        this.days = ds;
+        dt = new DateYMD(1,1,2000);
+        if(days > 0){
+            for(int i = 0; i < ds;i++){
+                dt.incrementDate();
+            }
+        }else if(days < 0){
+            for(int i = ds; i > 0;i--){
+                dt.decrementDate();
+            }
+        }
     }
 
     public int getDays(){ return days; }
 
-    private static int calculateDays(int d, int m, int y){
-        // Descobrir se é menor ou maior ao comparar as datas
-        // Se a data for menor, então vamos incrementando em loop até serem iguais
-        // Caso contrário é o inverso
-
-
-        return 0;
-    }
+    void incrementDate(){ days++; dt.incrementDate(); }
+    void decrementDate(){ days--; dt.decrementDate(); }
 
     @Override
     public String toString(){
-        return "Days: " + getDays();
+        return "Days: " + getDays() + "; " + dt.toString();
     }
 }

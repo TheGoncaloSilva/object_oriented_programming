@@ -1,6 +1,6 @@
 package aula07.ex_1;
 
-public class Retangulo extends Forma implements Comparable<Object> {
+public class Retangulo extends Forma{
     private double length, height;
 
     public Retangulo(double length, double height, String c){
@@ -31,12 +31,9 @@ public class Retangulo extends Forma implements Comparable<Object> {
 
     @Override
     public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (obj == null | getClass() != obj.getClass()) return false;
-
+        if(!(obj instanceof Retangulo) && getClass() != obj.getClass()) return false;
         Retangulo r = (Retangulo) obj;
-        
-        return this.perimeter() == r.perimeter() && this.getCor().equals(r.getCor());
+        return super.equals(r) && (this.perimeter() == r.perimeter() && this.getCor().equals(r.getCor()));
     }
 
     @Override

@@ -2,7 +2,7 @@ package aula07.ex_1;
 
 import java.util.Arrays;
 
-public class Triangulo extends Forma implements Comparable<Object>{
+public class Triangulo extends Forma {
     private double[] sides;
 
     public Triangulo(double l1, double l2, double l3, String c){
@@ -41,8 +41,7 @@ public class Triangulo extends Forma implements Comparable<Object>{
 
     @Override
     public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (obj == null | getClass() != obj.getClass()) return false;
+        if(!(obj instanceof Triangulo) && getClass() != obj.getClass()) return false;
 
         Triangulo r = (Triangulo) obj;
         double[] original = this.getSides(); 
@@ -56,7 +55,7 @@ public class Triangulo extends Forma implements Comparable<Object>{
                 break;
             }
         }
-        return val && this.getCor().equals(r.getCor());
+        return super.equals(r) && val;
     }
 
     @Override
@@ -65,7 +64,7 @@ public class Triangulo extends Forma implements Comparable<Object>{
         if (obj == null || getClass() != obj.getClass()) return -1;
 
         Triangulo r = (Triangulo) obj;
-        if(r.area() < this.area() && !this.getCor().equals(r.getCor()))
+        if(r.area() < this.area())
             return -1;
         else if(r.area() > this.area())
             return 1;

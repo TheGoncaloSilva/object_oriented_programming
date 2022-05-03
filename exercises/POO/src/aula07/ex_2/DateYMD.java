@@ -12,6 +12,14 @@ public class DateYMD extends Date {
         this.year = today.get(Calendar.YEAR);
     }
 
+    public DateYMD(int d, int m, int y){
+        if(valid(d, m, y)){ // only sets the value if its valid
+            this.day = d;
+            this.month = m;
+            this.year = y;
+        }
+    }
+
     public void set(int d, int m, int y){
         if(valid(d, m, y)){ // only sets the value if its valid
             this.day = d;
@@ -23,6 +31,32 @@ public class DateYMD extends Date {
     public int getDay(){ return day; }
     public int getMonth(){ return month; }
     public int getYear(){ return year; }
+
+    void incrementDate() {    
+        day++;
+        if(!valid(day, month, year)) {
+            month++;
+            day = 1;
+            if(!valid(day,month,year)) {
+                day = 1;
+                month = 1;
+                year++;
+            }
+        }
+    }
+
+    void decrementDate() {    
+        day--;
+        if(!valid(day, month, year)) {
+            month--;
+            day = monthDays(month, year);
+            if(!valid(day,month,year)) {
+                month = 12;
+                day = monthDays(month, year);
+                year--;
+            }
+        }
+    }
 
     @Override
     public String toString(){

@@ -7,15 +7,16 @@ public class ex_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
-        Circulo cir = null;
-        Triangulo tri = null;
-        Retangulo rect = null;
+        Forma cir = null;
+        Forma tri = null;
+        Forma rect = null;
         do{
             printMenu();
             choice = read_intValue("Operation? ", sc, 0, 7);
             System.out.println(); // spacing
             switch (choice) {
-                case 1: tri = new Triangulo(read_doubleValue("Input Side 1 value: ", sc, 0.0, Double.MAX_VALUE), read_doubleValue("Input Side 2 value: ", sc, 0.0, Double.MAX_VALUE), read_doubleValue("Input Side 3 value: ", sc, 0.0, Double.MAX_VALUE), read_stringValue("Input the object color: ", sc)); break;
+                case 1: 
+                    tri = new Triangulo(read_doubleValue("Input Side 1 value: ", sc, 0.0, Double.MAX_VALUE), read_doubleValue("Input Side 2 value: ", sc, 0.0, Double.MAX_VALUE), read_doubleValue("Input Side 3 value: ", sc, 0.0, Double.MAX_VALUE), read_stringValue("Input the object color: ", sc)); break;
                 case 2: cir = new Circulo(read_doubleValue("Input the radius: ", sc, 0.0, Double.MAX_VALUE), read_stringValue("Input the object color: ", sc)); break;
                 case 3: rect = new Retangulo(read_doubleValue("Input the length: ", sc, 0.0, Double.MAX_VALUE), read_doubleValue("Input the height: ", sc, 0.0, Double.MAX_VALUE), read_stringValue("Input the object color: ", sc)); break;
                 case 4: 

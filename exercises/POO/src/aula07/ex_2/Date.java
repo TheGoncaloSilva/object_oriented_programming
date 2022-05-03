@@ -1,7 +1,7 @@
 package aula07.ex_2;
 
 // NOTE: cannot instance abstract classes
-public abstract class Date implements Comparable<Object> {
+public abstract class Date {
     
     protected int day, month, year;
 
@@ -26,38 +26,10 @@ public abstract class Date implements Comparable<Object> {
     }
 
     public static boolean valid(int day, int month, int year){
-        return ((day >= 1 && day <= monthDays(month, year)) && validMonth(month)) ? true: false;
+        return validMonth(month) && ((day >= 1 && day <= monthDays(month, year))) ? true: false;
     }
 
-    public void incrementDate() {    
-        day++;
-        if(!valid(day, month, year)) {
-            month++;
-            day = 1;
-            if(!valid(day,month,year)) {
-                day = 1;
-                month = 1;
-                year++;
-            }
-        }
-    }
-
-    public void decrementDate() {    
-        day--;
-        if(!valid(day, month, year)) {
-            month--;
-            day = monthDays(month, year);
-            if(!valid(day,month,year)) {
-                month = 12;
-                day = monthDays(month, year);
-                year--;
-            }
-        }
-    }
-
-    @Override
-    public int compareTo(Object obj){
-        return 0;
-    }
+    abstract void incrementDate();
+    abstract void decrementDate();
     
 }

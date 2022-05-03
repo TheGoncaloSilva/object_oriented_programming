@@ -1,21 +1,20 @@
-/** Teste the date class */
-
 package aula07.ex_2;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ex_1_date {
+public class ex_2b {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean run = true;
-        DateYMD dt = new DateYMD();
+        DateND dt = null;
         while(run){
             printMenu();
             int option = read_value("Operation? ", sc, 0, 4);
             switch (option) {
                 case 0: run = false; break;
-                case 1: dt.set(read_value("Input the day: ", sc, 1, 31), read_value("Input the month: ", sc, 1, 12), read_value("Input the year: ", sc, 1, Integer.MAX_VALUE));break;
+                case 1: dt = new DateND(read_value("Input the days: ", sc, 0, Integer.MAX_VALUE));break;
                 case 2: System.out.println("Current date: " + dt.toString()); break;
                 case 3: dt.incrementDate(); break;
                 case 4: dt.decrementDate(); break;

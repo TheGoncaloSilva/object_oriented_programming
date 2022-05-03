@@ -47,7 +47,7 @@ public class date {
     }
 
     public static boolean valid(int day, int month, int year){
-        return ((day >= 1 && day <= monthDays(month, year)) && validMonth(month)) ? true: false;
+        return validMonth(month) && ((day >= 1 && day <= monthDays(month, year))) ? true: false;
     }
 
     public void incrementDate() {    
