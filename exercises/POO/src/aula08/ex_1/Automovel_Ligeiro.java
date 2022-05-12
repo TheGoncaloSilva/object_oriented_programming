@@ -23,8 +23,8 @@ public class Automovel_Ligeiro extends Viatura {
 
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Automovel Ligeiro; Numero de Quadro: " + getNumero_quadro() + "; Capacidade de Bagageira: " + getCapacidade_bagageira() + "\n");
-        sb.append(super.toString());
+        sb.append("-> Automovel Ligeiro; Numero de Quadro: " + getNumero_quadro() + "; Capacidade de Bagageira: " + getCapacidade_bagageira() + "\n");
+        sb.append(super.toString() + "\n");
         return sb.toString();
     }
     

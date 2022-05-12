@@ -3,7 +3,7 @@ package aula08.ex_1;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class main_1a {
+public class main_1b {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Empresa_Aluguer emp = null;
@@ -12,16 +12,30 @@ public class main_1a {
         String email = readStringValue("Insira o email da empresa: ", sc);
         String codigo_postal = readStringValue("Insira o código-postal da empresa: ", sc);
         String matricula, marca, modelo , numero_quadro;
-        int cilindrada, bagageira, licenca, peso, carga_maxima, max_passageiros, opt;
+        int cilindrada, bagageira, licenca, peso, carga_maxima, max_passageiros, opt, autonomia;
         emp = new Empresa_Aluguer(nome, codigo_postal, email);
         boolean run = true;
         while(run){
             menuScreen();
-            int choice = readIntValue("Escolha: ", sc, 0, 5);
+            int choice = readIntValue("Escolha: ", sc, 0, 6);
             System.out.println();
             switch(choice){
-                case 5:
+                case 6:
                     System.out.println(emp.toString());
+                    break;
+                case 5:
+                    if(emp.getViaturasSize() > 0){
+                        System.out.println(emp.listar_viaturas_eletricas());
+                        opt = readIntValue("Escolha o ID da viatura para carregar: ", sc, 0, emp.getViaturasSize()-1);
+                        if(emp.encontrar_viatura_Index(opt) instanceof Automovel_Ligeiro_Eletrico){
+                            Automovel_Ligeiro_Eletrico veiculo = (Automovel_Ligeiro_Eletrico) emp.encontrar_viatura_Index(opt);
+                            veiculo.carregar(readIntValue("Qual a percentagem de carregamento? ", sc, 0, Integer.MAX_VALUE));
+                        }else{
+                            Pesado_Passageiros_Eletrico veiculo = (Pesado_Passageiros_Eletrico) emp.encontrar_viatura_Index(opt);
+                            veiculo.carregar(readIntValue("Qual a percentagem de carregamento? ", sc, 0, Integer.MAX_VALUE));
+                        }
+                    } else
+                        System.out.println("Não existem viaturas");
                     break;
                 case 4:
                     if(emp.getViaturasSize() > 0){
@@ -49,9 +63,22 @@ public class main_1a {
                     Boolean run2 = true;
                     while(run2){
                         viaturaTypeMessage();
-                        opt = readIntValue("Opção? ", sc, 1, 5);
+                        opt = readIntValue("Opção? ", sc, 1, 7);
                         switch(opt){
-                            case 5:
+                            case 7:
+                                matricula = readStringValue("Matricula do Pesado de Passageiros Elétrico: ", sc);
+                                marca = readStringValue("Marca do Pesado de Passageiros Elétrico: ", sc);
+                                modelo = readStringValue("Modelo do Pesado de Passageiros Elétrico: ", sc);
+                                cilindrada = readIntValue("Cilindrada do Pesado de Passageiros Elétrico: ", sc, 0, Integer.MAX_VALUE);
+                                numero_quadro = readStringValue("Número de Quadro do Pesado de Passageiros Elétrico: ", sc);
+                                max_passageiros = readIntValue("Máximo de Passageiros do Pesado de Passageiros Elétrico: ", sc, 0, Integer.MAX_VALUE);
+                                peso = readIntValue("Peso do Pesado de Passageiros Elétrico: ", sc, 0, Integer.MAX_VALUE);
+                                autonomia = readIntValue("Autonomia do Pesado de Passageiros Elétrico: ", sc, 1, Integer.MAX_VALUE);                               
+                                Viatura passageiros_ele = new Pesado_Passageiros_Eletrico(matricula, marca, modelo, numero_quadro, cilindrada, peso, max_passageiros, autonomia);
+                                emp.inserir_viatura(passageiros_ele);
+                                run2 = false;
+                                break;
+                            case 6:
                                 matricula = readStringValue("Matricula do Pesado de Passageiros: ", sc);
                                 marca = readStringValue("Marca do Pesado de Passageiros: ", sc);
                                 modelo = readStringValue("Modelo do Pesado de Passageiros: ", sc);
@@ -63,7 +90,7 @@ public class main_1a {
                                 emp.inserir_viatura(passageiros);
                                 run2 = false;
                                 break;
-                            case 4:
+                            case 5:
                                 matricula = readStringValue("Matricula do Pesado de Mercadorias: ", sc);
                                 marca = readStringValue("Marca do Pesado de Mercadorias: ", sc);
                                 modelo = readStringValue("Modelo do Pesado de Mercadorias: ", sc);
@@ -75,7 +102,7 @@ public class main_1a {
                                 emp.inserir_viatura(mercadorias);
                                 run2 = false;
                                 break;
-                            case 3:
+                            case 4:
                                 matricula = readStringValue("Matricula do Taxi: ", sc);
                                 marca = readStringValue("Marca do Taxi: ", sc);
                                 modelo = readStringValue("Modelo do Taxi: ", sc);
@@ -85,6 +112,18 @@ public class main_1a {
                                 licenca = readIntValue("Licença do Taxi: ", sc, 0, Integer.MAX_VALUE);                               
                                 Viatura taxi = new Taxi(matricula, marca, modelo, numero_quadro, cilindrada, bagageira, licenca);
                                 emp.inserir_viatura(taxi);
+                                run2 = false;
+                                break;
+                            case 3:
+                                matricula = readStringValue("Matricula do Automóvel Ligeiro Elétrico: ", sc);
+                                marca = readStringValue("Marca do Automóvel Ligeiro Elétrico: ", sc);
+                                modelo = readStringValue("Modelo do Automóvel Ligeiro Elétrico: ", sc);
+                                cilindrada = readIntValue("Cilindrada do Automóvel Ligeiro Elétrico: ", sc, 0, Integer.MAX_VALUE);
+                                numero_quadro = readStringValue("Número de Quadro do Automóvel Ligeiro Elétrico: ", sc);
+                                bagageira = readIntValue("Capacidade de Bagageira do Automóvel Ligeiro Elétrico: ", sc, 1, Integer.MAX_VALUE);
+                                autonomia = readIntValue("Autonomia do Automóvel Ligeiro Elétrico: ", sc, 1, Integer.MAX_VALUE);
+                                Viatura auto_ele = new Automovel_Ligeiro_Eletrico(matricula, marca, modelo, numero_quadro, cilindrada, bagageira, autonomia);
+                                emp.inserir_viatura(auto_ele);
                                 run2 = false;
                                 break;
                             case 2:
@@ -173,7 +212,8 @@ public class main_1a {
         System.out.println("##        2 - Remover Viatura         ##");
         System.out.println("##        3 - Maior Distância         ##");
         System.out.println("##        4 - Adicinar Trajeto        ##");
-        System.out.println("##        5 - Ver dados da empresa    ##");
+        System.out.println("##        5 - Carregar Elétrico       ##");
+        System.out.println("##        6 - Ver dados da empresa    ##");
         System.out.println("##        0 - Sair                    ##");
         System.out.println("########################################\n");
     }
@@ -183,9 +223,12 @@ public class main_1a {
         System.out.println("##       Selecione o Veículo:         ##");
         System.out.println("##        1 - Motociclo               ##");
         System.out.println("##        2 - Automóvel Ligeiro       ##");
-        System.out.println("##        3 - Táxi                    ##");
-        System.out.println("##        4 - Pesado Mercadorias      ##");
-        System.out.println("##        5 - Pesado Passageiros      ##");
+        System.out.println("##        3 - Automóvel Lig. Elétrico ##");
+        System.out.println("##        4 - Táxi                    ##");
+        System.out.println("##        5 - Pesado Mercadorias      ##");
+        System.out.println("##        6 - Pesado Passageiros      ##");
+        System.out.println("##        7 - Pesado Pas. Elétrico    ##");
         System.out.println("########################################\n");
     }
 }
+

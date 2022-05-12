@@ -28,8 +28,8 @@ public class Taxi extends Viatura{
 
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Taxi; Número de Licença: " + getLicenca() + "; Numero de Quadro: " + getNumero_quadro() + "; Capacidade de Bagageira: " + getCapacidade_bagageira() + "\n");
-        sb.append(super.toString());
+        sb.append("-> Taxi; Número de Licença: " + getLicenca() + "; Numero de Quadro: " + getNumero_quadro() + "; Capacidade de Bagageira: " + getCapacidade_bagageira() + "\n");
+        sb.append(super.toString() + "\n");
         return sb.toString();
     }
 }

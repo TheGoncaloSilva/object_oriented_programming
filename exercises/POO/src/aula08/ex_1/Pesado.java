@@ -6,7 +6,10 @@ public abstract class Pesado extends Viatura {
 
     public Pesado(String matricula, String marca, String modelo, String numero_quadro, int cilindrada, int peso){
         super(matricula, marca, modelo, cilindrada);
-        this.peso = peso;
+        if(peso > 0)
+            this.peso = peso;
+        else
+            System.out.println("O atríbuto peso precisa de ser superior a 0");
         this.numero_quadro = numero_quadro;
     }
 
@@ -24,7 +27,7 @@ public abstract class Pesado extends Viatura {
 
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Pesado; Peso: " + getPeso() + "\n");
+        sb.append("-> Pesado; Peso: " + getPeso() + "\n");
         sb.append(super.toString());
         return sb.toString();
     }

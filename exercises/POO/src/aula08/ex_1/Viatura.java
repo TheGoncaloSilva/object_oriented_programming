@@ -28,7 +28,7 @@ public abstract class Viatura implements KmPercorridosInterface {
     }
 
     private void redimensionar_trajeto(){
-        if(trajetos.length > aux_trajetos - 1) return;
+        if(trajetos.length >= aux_trajetos) return;
         int[] aux = new int[trajetos.length + 10];
         for(int i = 0; i < trajetos.length; i++)
             aux[i] = trajetos[i];
@@ -41,7 +41,7 @@ public abstract class Viatura implements KmPercorridosInterface {
 
     public int distanciaTotal(){
         int total = 0;
-        for(int i = 0; i <= aux_trajetos; i++){
+        for(int i = 0; i < aux_trajetos; i++){
             total += trajetos[i];
         }
         return total;
@@ -61,7 +61,7 @@ public abstract class Viatura implements KmPercorridosInterface {
     }
 
     @Override public String toString(){
-        return getMatricula() + " - " + getMarca() + " " + getModelo() + " com cilindrada de " + getCilindrada();
+        return getMatricula() + ": " + getMarca() + " " + getModelo() + " com cilindrada de " + getCilindrada();
     }
 
 }

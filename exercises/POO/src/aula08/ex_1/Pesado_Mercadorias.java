@@ -5,7 +5,10 @@ public class Pesado_Mercadorias extends Pesado {
 
     public Pesado_Mercadorias(String matricula, String marca, String modelo, String numero_quadro, int cilindrada, int peso, int carga_maxima){
         super(matricula, marca, modelo, numero_quadro, cilindrada, peso);
-        this.carga_maxima = carga_maxima;
+        if(carga_maxima > 0)
+            this.carga_maxima = carga_maxima;
+        else   
+            System.out.println("O atríbuto carga máxima precisa de ser superior a 0");
     }
 
     public int getPeso(){ return peso; }
@@ -22,7 +25,7 @@ public class Pesado_Mercadorias extends Pesado {
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString() + "\n");
-        sb.append("Pesado de Mercadorias com carga máxima de " + getCarga_maxima());
+        sb.append("Pesado de Mercadorias com carga máxima de " + getCarga_maxima() + "\n");
         return sb.toString();
     }
 }

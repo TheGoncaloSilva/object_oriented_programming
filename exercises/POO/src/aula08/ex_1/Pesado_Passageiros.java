@@ -22,7 +22,7 @@ public class Pesado_Passageiros extends Pesado {
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString() + "\n");
-        sb.append("Pesado de Passageiros com número máximo de passageiros de " + getMax_passageiros());
+        sb.append("Pesado de Passageiros com número máximo de passageiros de " + getMax_passageiros() + "\n");
         return sb.toString();
     }
 }

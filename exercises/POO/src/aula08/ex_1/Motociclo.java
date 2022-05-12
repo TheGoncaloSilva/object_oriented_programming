@@ -5,8 +5,7 @@ public class Motociclo extends Viatura {
 
     public Motociclo(String matricula, String marca, String modelo, int cilindrada, String tipo){
         super(matricula, marca, modelo, cilindrada);
-        tipo = "";
-        if(tipo.equals("Estrada") || tipo.equals("Desportivo"))
+        if(tipo.toLowerCase().equals("estrada") || tipo.toLowerCase().equals("desportivo"))
             this.tipo = tipo;
         else
             System.out.println("Valor para o tipo de automóvel errado");
@@ -23,8 +22,8 @@ public class Motociclo extends Viatura {
 
     @Override public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Motociclo; Tipo: " + getTipo() + "\n");
-        sb.append(super.toString());
+        sb.append("-> Motociclo; Tipo: " + getTipo() + "\n");
+        sb.append(super.toString() + "\n");
         return sb.toString();
     }
 }
