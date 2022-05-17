@@ -30,6 +30,18 @@ public class Pessoa {
 
     }
 
+    @Override public boolean equals(Object obj){
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (!(this.getClass() == obj.getClass())) return false;
+        Pessoa p = (Pessoa) obj;
+        /** Compare attibutes */
+        if (!(this.getNome().equals(p.getNome()))) return false;
+        if (!(this.getCC() == p.getCC())) return false;
+        if (!(this.getDataNasc().equals(p.getDataNasc()))) return false;
+        return true;
+    }
+
     @Override
     public String toString(){
         return "Nome: " + getNome() + ", CC: " + getCC() + ", Data de Nascimento: " + getDataNasc();

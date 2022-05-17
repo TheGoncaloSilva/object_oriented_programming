@@ -73,7 +73,7 @@ public class ALDemo_b {
 
         c3.add(new Pessoa("Maria Joaquina", 30164578, new Date(25,5,1970)));
         System.out.println(c3.size());
-        //assert c3.size() == 5; // No equal elements in Set
+        assert c3.size() == 5; // No equal elements in Set
         
         /****************** TreeSet *****************/
         Set<Date> c4 = new TreeSet<>();

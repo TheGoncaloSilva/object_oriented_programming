@@ -83,8 +83,19 @@ public class Date {
         }
     }
 
-    @Override
-    public String toString(){
+    @Override public boolean equals(Object obj){
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (!(this.getClass() == obj.getClass())) return false;
+        Date d = (Date) obj;
+        /** Compare attibutes */
+        if (this.getDay() != d.getDay()) return false;
+        if (this.getMonth() != d.getMonth()) return false;
+        if (this.getYear() != d.getYear()) return false;
+        return true;
+    }
+
+    @Override public String toString(){
         return year + "-" + month + "-" + day;
     }
 
