@@ -3,7 +3,7 @@ package aula08.ex_2;
 public class A08E02 {
 
 	public static void main(String[] args) {
-		Ementa ementa = new Ementa("Especial Primavera", "Snack da UA");
+		/*Ementa ementa = new Ementa("Especial Primavera", "Snack da UA");
 		Prato[] pratos = new Prato[DiaSemana.values().length];
 		for (int i = 0; i < pratos.length; i++) {
 			pratos[i] = randPrato(i + 1);
@@ -58,7 +58,7 @@ public class A08E02 {
 			res = new PratoDieta("combinado n." + i, 90.8);
 			break;
 		}
-		return res;
+		return res;*/
 	}
 
 }
