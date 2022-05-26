@@ -2,7 +2,7 @@ package aula09.ex_1;
 
 import java.util.Calendar;
 
-public class Date {
+public class Date implements Comparable<Date> {
     
     private int day, month, year;
 
@@ -95,8 +95,23 @@ public class Date {
         return true;
     }
 
+    @Override public int compareTo(Date date){
+        if(this.getYear() < date.getYear()) return -1;
+        else if(this.getYear() > date.getYear()) return 1;
+        // Year is equal
+        if(this.getMonth() < date.getMonth()) return -1;
+        else if(this.getMonth() > date.getMonth()) return 1;
+        // Month is equal
+        if(this.getDay() < date.getDay()) return -1;
+        else if(this.getDay() > date.getDay()) return 1;
+        else return 0;
+    }
+
+    @Override public int hashCode() {
+        return ((Integer) getDay()).hashCode() * ((Integer) getMonth()).hashCode() * ((Integer) getMonth()).hashCode();
+    }
     @Override public String toString(){
-        return year + "-" + month + "-" + day;
+        return "Date: " + year + "-" + month + "-" + day;
     }
 
 }

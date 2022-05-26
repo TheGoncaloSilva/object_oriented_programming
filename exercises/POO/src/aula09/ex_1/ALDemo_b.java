@@ -1,18 +1,17 @@
 package aula09.ex_1;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
-
-import aula05.date;
 
 import java.util.Collections;
 
 public class ALDemo_b {
     public static void main(String[] args) {
+        System.out.println("## Always enable assertions before running ##");
         ArrayList<Integer> c1 = new ArrayList<>();
         for (int i = 10; i <= 100; i+=10)
             c1.add(i);
@@ -67,15 +66,32 @@ public class ALDemo_b {
         assert c3.size() == 5;
         System.out.println(c3);
 
-        for(Pessoa res:c3){
-            System.out.println(res);
-        }
-
+        Iterator<Pessoa> itr = c3.iterator();
+        while(itr.hasNext()){  
+            System.out.println(itr.next());  
+        }  
         c3.add(new Pessoa("Maria Joaquina", 30164578, new Date(25,5,1970)));
         System.out.println(c3.size());
+        // NEED HASHFUNCTION
         assert c3.size() == 5; // No equal elements in Set
         
         /****************** TreeSet *****************/
         Set<Date> c4 = new TreeSet<>();
+        c4.add(new Date(12,12,2012));
+        c4.add(new Date(1,2,2000));
+        c4.add(new Date(30,9,1990));
+        c4.add(new Date(8,3,1970));
+        c4.add(new Date(20,1,1801));
+        assert c4.size() == 5;
+        
+        Iterator<Date> itrTree = c4.iterator();
+        while(itrTree.hasNext()){  
+            System.out.println(itrTree.next());  
+        }  
+
+        c4.add(new Date(20,1,1801)); // shouldn't add
+        assert c4.size() == 5;
+        assert c4.contains(new Date(20,1,1801));
+        
     }
 }

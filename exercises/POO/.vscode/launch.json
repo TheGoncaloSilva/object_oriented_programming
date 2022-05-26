@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "Launch CollectionTester",
+            "request": "launch",
+            "mainClass": "aula09.ex_2.CollectionTester",
+            "projectName": "POO_7c67c5fb"
+        },
         {
             "type": "java",
             "name": "Launch ALDemo_b",
