@@ -2,14 +2,15 @@ package aula12.ex_2;
 
 import java.util.Objects;
 
-public class Movie {
+public class Movie implements Comparable<Movie>{
     private String name, genre, rating;
     private double score;
+    private int time;
 
     public Movie() {
     }
 
-    public Movie(String name, String genre, String rating, double score, int time) {
+    public Movie(String name, double score, String rating, String genre, int time) {
         this.name = name;
         this.genre = genre;
         this.rating = rating;
@@ -99,14 +100,21 @@ public class Movie {
     }
 
     @Override
+    public int compareTo(Movie movie){
+        if (movie == this)
+            return 0;
+        return this.name.compareTo(movie.name);
+    }
+
+    @Override
     public String toString() {
-        return "{" +
+        return "->" +
             " name='" + getName() + "'" +
             ", genre='" + getGenre() + "'" +
             ", rating='" + getRating() + "'" +
             ", score='" + getScore() + "'" +
             ", time='" + getTime() + "'" +
-            "}";
+            "";
     }
-    private int time;
+    
 }

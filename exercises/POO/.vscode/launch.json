@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RandomTicketTester",
+            "request": "launch",
+            "mainClass": "small_evaluation.RandomTicketTester",
+            "projectName": "POO_7c67c5fb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex_2",
+            "request": "launch",
+            "mainClass": "aula12.ex_2.ex_2",
+            "projectName": "POO_7c67c5fb"
+        },
+        {
+            "type": "java",
             "name": "Launch ex_1",
             "request": "launch",
             "mainClass": "aula12.ex_1",
