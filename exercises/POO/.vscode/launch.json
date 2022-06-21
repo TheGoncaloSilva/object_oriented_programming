@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch lambda",
+            "request": "launch",
+            "mainClass": "tests.lambda",
+            "projectName": "POO_7c67c5fb"
+        },
+        {
+            "type": "java",
             "name": "Launch RandomTicketTester",
             "request": "launch",
             "mainClass": "small_evaluation.RandomTicketTester",
