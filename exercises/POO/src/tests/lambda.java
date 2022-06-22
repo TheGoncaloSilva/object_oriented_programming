@@ -1,7 +1,13 @@
 package tests;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @FunctionalInterface
@@ -32,6 +38,43 @@ public class lambda {
             .limit(10);
         
         System.out.println(over6Elements);
+
+
+        System.out.println(
+            list.stream()
+                .filter(val -> val >= 7)
+                .collect(Collectors.toList())
+        );
+
+        /*var sortedList = list.toStream()
+            .sorted(Comparator.comparing(person.name))
+            .collect(Collectors.toList());*/
+
+        Map<String, Integer> nameBillions = new LinkedHashMap<>();
+
+        nameBillions.put("Warren Buffet", 120);
+        nameBillions.put("Jeff Bezos", 150);
+        nameBillions.put("Bill Gates", 100);
+        nameBillions.put("Mark Zuckerberg", 50);
+
+        /*for(Map.Entry<String, HashMap> entry : selects.entrySet()) {
+            String key = entry.getKey();
+            HashMap value = entry.getValue();
+        
+            // do what you have to do here
+            // In your case, another loop.
+        }*/
+        System.out.println("\nListar Todos");
+        nameBillions.forEach((key, value) -> System.out.println("Key: " + key + "; Value: " + value));
+        
+        System.out.println("\nListar todos com net com net worth acima de 110 bilioes");
+        Map<String, Integer> above11 = new LinkedHashMap<>();
+        for(Map.Entry<String, Integer> person: nameBillions.entrySet()){
+            if(person.getValue() >= 110)
+                above11.put(person.getKey(), person.getValue());
+        }
+        above11.forEach((k, v) -> System.out.println("Name: " + k + "; Value: " + v));
+
 
     }
 }

@@ -1,0 +1,22 @@
+
+Alínea 1) ----------------------------------
+
+Sabores Gostosos vai visitar 4 restaurantes
+A Volta do Churrasco vai visitar 3 restaurantes
+RESTAURANTES DE Sabores Gostosos: [Restaurante { nome='Carvao em Brasa', tipodecomida='CHURRASQUEIRA'}, Restaurante { nome='Super Marios', tipodecomida='ITALIANO'}, Restaurante { nome='Camarao Selvagem', tipodecomida='MARISQUEIRA'}, Restaurante { nome='Flower Taste', tipodecomida='VEGETARIANO'}]
+PASSEIOS DE VISITAS A Arquitetura Antiga: [Igreja Velha, Aqueduto]
+PASSEIOS DE VISITAS A Bares: [Copos e Conversas, Canequinhas]
+AGENCIA: { nome='Abaixo as Calorias', endereço='Aveiro'}
+TOTAL DE LOCAIS A VISITAR: 4
+
+Alínea 2) ----------------------------------
+
+AGENCIA: { nome='Tours4Eating', endereço='Universidade de Aveiro'}
+{ numero='10', nome='FingerFoodPlaces', restaurantes='[]'}
+{ numero='11', nome='Pescarias', restaurantes='[]'}
+{ numero='12', nome='SnackBars', restaurantes='[]'}
+{ numero='20', nome='Igrejas', locais='[IgrejaNova, IgrejaVelha, IgrejaDeCima]'}
+{ numero='21', nome='Canais', locais='[Ovar, SaoRoque]'}
+{ numero='22', nome='Departamentos', locais='[DETI, DEGEIT, DFIS]'}
+-- LISTA DE LUGARES DA AGENCIA --
+Canais, Departamentos, FingerFoodPlaces, Igrejas, Pescarias, SnackBars, 
