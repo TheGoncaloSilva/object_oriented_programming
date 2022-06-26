@@ -1,0 +1,32 @@
+
+Alínea 1) ----------------------------------
+
+ The best' [Aveiro] 
+ Cool bunch' [Viseu] 
+ Team mates' [Coimbra] 
+
+
+ The best' [Aveiro] 
+*** Evento em 2022-06-24, total=55.0 euros 
+	KAYAK activity with 12 participants.
+	FULL_MENU activity with 10 participants.
+
+*** Evento em 2022-07-10, total=52.0 euros 
+	HIKING activity with 15 participants.
+	WINE_TASTING activity with 20 participants.
+
+ Cool bunch' [Viseu] 
+*** Evento em 2022-06-25, total=47.0 euros 
+	DRINKS_AND_SNACKS activity with 20 participants.
+	ART_MUSEUM activity with 20 participants.
+
+ Team mates' [Coimbra] 
+*** Evento em 2022-06-30, total=69.0 euros 
+	LIGHT_BITES activity with 20 participants.
+	ARCHITECTURAL_TOUR activity with 10 participants.
+	RIVER_TOUR activity with 10 participants.
+
+
+
+Alínea 2) ----------------------------------
+

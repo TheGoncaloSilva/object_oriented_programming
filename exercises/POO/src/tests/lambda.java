@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -45,6 +46,11 @@ public class lambda {
                 .filter(val -> val >= 7)
                 .collect(Collectors.toList())
         );
+
+        System.out.println(list.stream().filter(val -> val >= 1).collect(Collectors.toList()).stream().filter(val -> val >= 2)
+            .collect(Collectors.toList()).stream().filter(val -> val >= 3).collect(Collectors.toList()).stream().filter(val -> val >= 4)
+            .collect(Collectors.toList()).stream().filter(val -> val >= 5).collect(Collectors.toList())
+            .stream().filter(val -> val >= 6).collect(Collectors.toList()).stream().filter(val -> val >= 7).collect(Collectors.toList()));
 
         /*var sortedList = list.toStream()
             .sorted(Comparator.comparing(person.name))
